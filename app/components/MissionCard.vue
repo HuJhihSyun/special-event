@@ -8,17 +8,20 @@
     point: number
     star: number
     icon: FunctionalComponent | Component | null
+    isChecked?: boolean
   }
 
   const props = withDefaults(defineProps<MissionCardProps>(), {
     title: 'title',
     point: 0,
-    icon: null
+    star: 0,
+    icon: null,
+    isChecked: false
   })
 </script>
 
 <template>
-  <div class="w-full px-3 bg-cover bg-[url('/paper-texture.jpg')] shadow-md rounded-lg">
+  <div class="relative w-full px-3 bg-cover bg-[url('/paper-texture.jpg')] shadow-md rounded-lg overflow-hidden">
     <div class="flex justify-center items-center gap-3">
       <div class="flex flex-col gap-1">
         <component :is="icon" class="w-10 h-10 text-amber-800" />
@@ -32,14 +35,28 @@
           <h4 class="text-[10px] text-amber-700 bg-amber-700/20 py-0.5 px-1.5 rounded">+{{ point }} pt</h4>
         </div>
         <div class="w-full pt-2 pb-3">
-          <h5 class="text-xs font-normal text-gray-500">{{ description }}</h5>
+          <h5 class="text-xs font-normal text-gray-500 line-clamp-2">{{ description }}</h5>
         </div>
       </div>
       <div>
         <slot name="action"></slot>
       </div>
     </div>
+    <aside
+      v-if="isChecked"
+      class="absolute w-full h-full left-0 top-0 bg-emerald-200/30 flex justify-center items-center pointer-events-none"
+    >
+      <div class="relative h-full w-4/5 flex justify-center items-center">
+        <div class="absolute w-full h-full bg-white/80 rounded-full blur-xl"></div>
+        <h6 class="text-center text-white font-bold quest-text">QUEST<br />COMPLETED</h6>
+      </div>
+    </aside>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  .quest-text {
+    filter: drop-shadow(-1px -1px 0px #00b388) drop-shadow(1px -1px 0px #00b388) drop-shadow(1px 1px 0px #00b388)
+      drop-shadow(-1px 1px 0px #00b388);
+  }
+</style>

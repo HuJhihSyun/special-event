@@ -1,10 +1,24 @@
 <script setup lang="ts">
+  import { ref, defineEmits } from 'vue'
+
+  interface TabMenuEmits {
+    (event: 'toggle', value: number): void
+  }
+
+  const emit = defineEmits<TabMenuEmits>()
+
   enum MENU {
     FARM,
-    MUSEUM
+    MUSEUM,
+    NIGHT
   }
 
   const currentMode = ref<MENU>(MENU.FARM)
+
+  const handleShow = (mode: MENU) => {
+    currentMode.value = mode
+    emit('toggle', mode)
+  }
 </script>
 
 <template>
@@ -14,16 +28,23 @@
         <li
           class="w-full text-xs text-amber-600 font-bold tracking-wider p-2 text-center"
           :class="{ 'bg-white/50 backdrop-blur-sm': currentMode === MENU.FARM }"
-          @click="currentMode = MENU.FARM"
+          @click="handleShow(MENU.FARM)"
         >
-          張美阿嬤農場
+          張美農場
         </li>
         <li
           class="w-full text-xs text-amber-600 font-bold tracking-wider p-2 text-center"
           :class="{ 'bg-white/50 backdrop-blur-sm': currentMode === MENU.MUSEUM }"
-          @click="currentMode = MENU.MUSEUM"
+          @click="handleShow(MENU.MUSEUM)"
         >
-          宜蘭傳藝中心
+          宜蘭傳藝
+        </li>
+        <li
+          class="w-full text-xs text-amber-600 font-bold tracking-wider p-2 text-center"
+          :class="{ 'bg-white/50 backdrop-blur-sm': currentMode === MENU.NIGHT }"
+          @click="handleShow(MENU.NIGHT)"
+        >
+          夜市逛街
         </li>
       </ul>
     </div>

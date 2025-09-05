@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <div class="w-full h-screen bg-cover bg-[url('/paper-bg.jpg')]">
+  <div class="w-full h-full min-h-screen bg-cover bg-[url('/paper-bg.jpg')]">
     <slot />
   </div>
 </template>
