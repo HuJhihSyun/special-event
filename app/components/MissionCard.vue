@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <div class="relative w-full px-3 bg-cover bg-[url('/paper-texture.jpg')] shadow-md rounded-lg overflow-hidden">
+  <div class="relative w-full px-3 bg-cover bg-[url('images/paper-texture.jpg')] shadow-md rounded-lg overflow-hidden">
     <div class="flex justify-center items-center gap-3">
       <div class="flex flex-col gap-1">
         <component :is="icon" class="w-10 h-10 text-amber-800" />

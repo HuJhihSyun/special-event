@@ -13,6 +13,7 @@
   import TempleSvg from '@/assets/images/temple.svg?skipsvgo'
   import SandwichSvg from '@/assets/images/sandwich.svg?skipsvgo'
   import SaladSvg from '@/assets/images/salad.svg?skipsvgo'
+  import HeartMessageSvg from '@/assets/images/message-heart.svg?skipsvgo'
 
   type Missions = {
     id: string
@@ -37,7 +38,7 @@
     {
       id: 'farm-mission-2',
       title: '到現在還是要小鹿亂撞！',
-      description: '成功讓小鹿舔手或肢體碰觸並拍下互動瞬間，讓小鹿感受自己心跳加速了',
+      description: '成功讓小鹿舔手與親密碰觸並拍下互動瞬間，讓小鹿感受自己心跳加速了',
       point: 5,
       star: 1,
       icon: markRaw(HeartSvg),
@@ -48,7 +49,7 @@
       title: '偷吃被抓罪證確鑿',
       description: '找到正在享用他人美食的動物並拍下證據，讓牠知道偷吃要注意別被發現',
       point: 5,
-      star: 1,
+      star: 2,
       icon: markRaw(CarrotSvg),
       isChecked: false
     },
@@ -99,15 +100,6 @@
     },
     {
       id: 'museum-mission-4',
-      title: '傑克～把船開到水深之處',
-      description: '搭乘渡船遊覽宜蘭傳藝沿岸的美麗風光，做出傑克與蘿絲的經典動作並拍照留念',
-      point: 10,
-      star: 2,
-      icon: markRaw(BoatSvg),
-      isChecked: false
-    },
-    {
-      id: 'museum-mission-5',
       title: '我們的世界容得下其他人',
       description: '在園區內景點拍攝至少 5 人以上大合照並上傳至 Line 群組相簿，留下美好回憶',
       point: 10,
@@ -116,9 +108,18 @@
       isChecked: false
     },
     {
+      id: 'museum-mission-5',
+      title: '傑克～把船開到水深之處',
+      description: '搭乘渡船遊覽宜蘭傳藝沿岸的美麗風光，做出傑克與蘿絲的經典動作並拍照留念',
+      point: 15,
+      star: 3,
+      icon: markRaw(BoatSvg),
+      isChecked: false
+    },
+    {
       id: 'night-mission-1',
       title: '這裡我熟！我推薦的包準好吃',
-      description: '購買你最愛的夜市美食並與其他對家庭局分享，請對方品嚐看看並描述口感',
+      description: '購買你最愛的夜市美食並與其他對家庭局交換，請對方品嚐看看你的口味並描述口感',
       point: 5,
       star: 1,
       icon: markRaw(SandwichSvg),
@@ -128,9 +129,18 @@
       id: 'night-mission-2',
       title: '我要成為夜市王',
       description: '與自己的對象一起吃超過三道以上的夜市美食且花費超過 300 元，享受美食饗宴',
-      point: 5,
-      star: 1,
+      point: 10,
+      star: 2,
       icon: markRaw(SaladSvg),
+      isChecked: false
+    },
+    {
+      id: 'night-mission-3',
+      title: '今天也獻上感謝',
+      description: '平安賦歸也不忘與對象分享今日的體會或感想，並向神獻上感謝',
+      point: 5,
+      star: 2,
+      icon: markRaw(HeartMessageSvg),
       isChecked: false
     }
   ])
@@ -187,7 +197,7 @@
         <p class="text-amber-900 text-sm text-center">分</p>
       </div>
     </header>
-    <section v-show="currentMode === 0" id="farm" class="w-11/12 mx-auto mt-6">
+    <section v-show="currentMode === 0" id="farm" class="w-11/12 mx-auto mt-6 pb-10">
       <h2 class="text-amber-900 font-medium text-sm mb-2">張美阿嬤農場</h2>
       <div class="flex flex-col gap-3">
         <MissionCard
@@ -206,7 +216,7 @@
         </MissionCard>
       </div>
     </section>
-    <section v-show="currentMode === 1" id="museum" class="w-11/12 mx-auto mt-6">
+    <section v-show="currentMode === 1" id="museum" class="w-11/12 mx-auto mt-6 pb-10">
       <h2 class="text-amber-900 font-medium text-sm mb-2">宜蘭傳藝中心</h2>
       <div class="flex flex-col gap-3">
         <MissionCard
@@ -225,7 +235,7 @@
         </MissionCard>
       </div>
     </section>
-    <section v-show="currentMode === 2" id="night" class="w-11/12 mx-auto mt-6 mb-10">
+    <section v-show="currentMode === 2" id="night" class="w-11/12 mx-auto mt-6 pb-10">
       <h2 class="text-amber-900 font-medium text-sm mb-2">夜市巡禮</h2>
       <div class="flex flex-col gap-3">
         <MissionCard
@@ -247,4 +257,14 @@
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.2s;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+</style>

@@ -9,5 +9,11 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()]
   },
 
+  app: {
+    head: {
+      link: [{ rel: 'icon', type: 'image/x-icon', href: 'https://www.loveandword.tw/resource/images/favicon.ico' }]
+    }
+  },
+
   modules: ['nuxt-svgo-loader', '@vueuse/nuxt']
 })

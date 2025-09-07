@@ -39,14 +39,14 @@
       @change="handleChange"
       :disabled="disabled"
       v-bind="$attrs"
-      class="peer appearance-none rounded border border-gray-300 bg-white checked:border-amber-700 hover:border-amber-700 focus:outline-none focus:ring-none focus:shadow-none cursor-pointer"
+      class="peer appearance-none rounded border border-gray-300 bg-white checked:border-emerald-600 hover:border-emerald-600 focus:outline-none focus:ring-none focus:shadow-none cursor-pointer"
       :class="{ 'pointer-events-none border-gray-300 bg-gray-100': disabled }"
       :style="{ display: 'inline-block' }"
     />
     <!-- 選中狀態的樣式 -->
     <span
       v-bind="$attrs"
-      class="absolute left-0 top-0 rounded flex items-center justify-center transition-all text-white opacity-0 peer-checked:opacity-100 peer-checked:bg-amber-800 pointer-events-none"
+      class="absolute left-0 top-0 rounded flex items-center justify-center transition-all text-white opacity-0 peer-checked:opacity-100 peer-checked:bg-emerald-700 pointer-events-none"
       :class="{ 'peer-checked:bg-gray-300': disabled }"
     >
       <svg v-bind="$attrs" class="stroke-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
