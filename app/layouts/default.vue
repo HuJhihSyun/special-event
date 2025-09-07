@@ -18,7 +18,7 @@
 
 <template>
   <div>
-    <div class="w-full h-full min-h-screen bg-cover bg-[url('images/paper-bg.jpg')]">
+    <div class="w-full h-full min-h-screen bg-cover bg-[url('/images/paper-bg.jpg')]">
       <slot />
     </div>
     <transition name="fade">
